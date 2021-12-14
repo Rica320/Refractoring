@@ -30,7 +30,7 @@ public class Worker {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Worker)) return false;
         Worker worker = (Worker) o;
         return Objects.equals(name, worker.name) &&
                 Objects.equals(phone, worker.phone) &&
