@@ -6,28 +6,28 @@ class TurtleSpockTest extends Specification {
 
     def 'Rotate Left'() {
         given:
-            def turtle = new Turtle(5, 5, 'N' as char);
+            def turtle = new LCommand(5, 5, 'N' as char);
 
         when:
-            turtle.execute('L' as char);
+            turtle.execute();
 
         then:
             'W' == turtle.getDirection()
 
         and:
-            turtle.execute('L' as char);
+            turtle.execute();
 
         then:
             'S' == turtle.getDirection()
 
         and:
-            turtle.execute('L' as char);
+            turtle.execute();
 
         then:
             'E' == turtle.getDirection()
 
         and:
-            turtle.execute('L' as char);
+            turtle.execute();
 
         then:
             'N' == turtle.getDirection()
@@ -39,28 +39,29 @@ class TurtleSpockTest extends Specification {
 
     def 'Rotate Right'() {
         given:
-            def turtle = new Turtle(5, 5, 'N' as char);
+            def turtle = new RCommand(5, 5, 'N' as char);
+
 
         when:
-            turtle.execute('R' as char);
+            turtle.execute();
 
         then:
             'E' == turtle.getDirection()
 
         and:
-            turtle.execute('R' as char);
+            turtle.execute();
 
         then:
             'S' == turtle.getDirection()
 
         and:
-            turtle.execute('R' as char);
+            turtle.execute();
 
         then:
             'W' == turtle.getDirection()
 
         and:
-            turtle.execute('R' as char);
+            turtle.execute();
 
         then:
             'N' == turtle.getDirection()
@@ -71,17 +72,18 @@ class TurtleSpockTest extends Specification {
     }
 
     def 'Forward'() {
+
         given:
-            def turtleN = new Turtle(5, 5, 'N' as char)
-            def turtleW = new Turtle(5, 5, 'W' as char);
-            def turtleS = new Turtle(5, 5, 'S' as char);
-            def turtleE = new Turtle(5, 5, 'E' as char);
+            def turtleN = new FCommand(5, 5, 'N' as char)
+            def turtleW = new FCommand(5, 5, 'W' as char);
+            def turtleS = new FCommand(5, 5, 'S' as char);
+            def turtleE = new FCommand(5, 5, 'E' as char);
 
         when:
-            turtleN.execute('F' as char)
-            turtleW.execute('F' as char);
-            turtleS.execute('F' as char);
-            turtleE.execute('F' as char);
+            turtleN.execute();
+            turtleW.execute();
+            turtleS.execute();
+            turtleE.execute();
 
         then:
             4 == turtleN.getRow()
